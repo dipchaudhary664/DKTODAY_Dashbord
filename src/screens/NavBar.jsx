@@ -34,13 +34,20 @@ const SideBar = () => {
   return (
     <Box
       color="white"
-      w="250px"
+      w={{ base: "60px", md: "200px", lg: "250px" }}
       h="100vh"
       position="fixed"
       boxShadow="0 4px 6px rgba(0,0,0,0.1)"
       overflowY="auto"
     >
-      <Heading mb="4" size="lg" color="black" pl="5" pt="5">
+      <Heading
+        mb="4"
+        size="lg"
+        color="black"
+        pl="5"
+        pt="5"
+        fontSize={{ base: "2xl", md: "xl", lg: "4xl" }}
+      >
         DKTODAY
       </Heading>
       <VStack alignItems="flex-start" mx="5">
@@ -87,7 +94,7 @@ const SideBar = () => {
               href="#"
               px="2"
               py="2"
-              width={"190px"}
+              width={{ base: "100%", md: "160px", lg: "190px" }}
               fontSize={"sm"}
               style={linkAndIconStyles("Item 1")}
               onClick={() => handleLinkClick("Item 1")}
@@ -291,7 +298,7 @@ const SideBar = () => {
         <HStack
           style={linkAndIconStyles("ซ่อนเมนู")}
           h={"20vh"}
-          ml={"115px"}
+          ml={"55%"}
           align={"center"}
         >
           <Icon icon="ep:d-arrow-left" color="gray" width="15" height="15" />

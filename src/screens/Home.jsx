@@ -9,6 +9,7 @@ import {
   AvatarBadge,
   VStack,
   Flex,
+  SimpleGrid,
 } from "@chakra-ui/react";
 import { Icon } from "@iconify/react";
 
@@ -65,10 +66,10 @@ const dashboardData = [
 const Home = () => {
   return (
     <Box>
-      <Box pl="20%" pr="2%" py="1%">
+      <Box pl={{ base: "20%", md: "28%", lg: "20%" }} pr="2%" py="1%">
         <HStack
           bgColor="#F2F4F4"
-          h={"8vh"}
+          h={"8%"}
           w={"100%"}
           borderRadius={"15px"}
           pl={"5"}
@@ -89,7 +90,7 @@ const Home = () => {
             height="20"
             hFlip={true}
           />
-          <Box>
+          <Box py={"1%"}>
             <Text fontSize={"xs"} fontWeight={"bold"}>
               รายการสินค้า
             </Text>
@@ -109,13 +110,13 @@ const Home = () => {
         </HStack>
       </Box>
       <Box
-        ml={"24%"}
+        ml={{ base: "24%", md: "28%", lg: "24%" }}
         my={"2%"}
         py="2"
         px="4"
         bgColor={"#FFDDBB "}
-        h="30vh"
-        w={"70%"}
+        h={{ base: "60vh", md: "29vh", lg: "32vh" }}
+        w={{ base: "70%", md: "70%", lg: "70%" }}
         borderRadius={"15px"}
       >
         <HStack>
@@ -146,19 +147,24 @@ const Home = () => {
           </Box>
         </HStack>
 
-        <HStack>
+        <SimpleGrid
+          columns={{ base: 1, md: 2, lg: 4 }}
+          rows={{ base: 2, md: 1 }}
+          spacing={4}
+          mt={4}
+        >
           {historyData.map((data, index) => (
             <VStack
+              key={index}
               mt={"2"}
               fontSize={"sm"}
               align={"start"}
               bgColor={"white"}
               borderRadius={"10px"}
-              w={"25%"}
-              h={"20vh"}
+              w={"100%"}
+              h={{ base: "25vh", md: "100%" }}
               px={"4"}
             >
-              {" "}
               <Text pt={"2"} color={"gray"}>
                 {data.event}
               </Text>
@@ -168,15 +174,23 @@ const Home = () => {
               <Text color={"gray"}>{data.eventComment}</Text>
             </VStack>
           ))}
-        </HStack>
+        </SimpleGrid>
       </Box>
-      <Box ml="24%" my={"2%"} py="2" px="4" h="30vh" w={"70%"}>
+
+      <Box
+        ml={{ base: "20%", md: "28%", lg: "24%" }}
+        my={"2%"}
+        py="2"
+        h="20vh"
+        w={{ base: "70%", md: "70%", lg: "74%" }}
+      >
         <HStack>
-          <Text fontSize={"md"} fontWeight={"bold"}>
+          <Text fontSize={"md"} fontWeight={"bold"} pl={"3"}>
             ภาพรวมในเดือน : วันที่ 1-25 ธันวาคม 2023
           </Text>
           <Spacer />
           <Box
+            mr={{ base: "20%", md: "3%", lg: "8%" }}
             pl={"3"}
             pr={"2"}
             py={"1"}
@@ -199,27 +213,28 @@ const Home = () => {
           </Box>
         </HStack>
 
-        <Flex direction="column" mt="5%">
+        <Flex direction="column" mt="5%" wrap="wrap">
           {[...Array(6)].map((_, rowIndex) => (
             <Flex key={rowIndex} justify="start" mb={4} gap={4}>
               {dashboardData
                 .slice(rowIndex * 2, rowIndex * 2 + 2)
                 .map((data, columnIndex) => (
-                  <VStack
+                  <Box
                     key={columnIndex}
-                    bgColor="#F8F9F9"
-                    borderRadius={"10px"}
+                    bg="#F8F9F9"
+                    borderRadius="10px"
                     boxShadow="0 4px 6px rgba(0,0,0,0.1)"
-                    w="100%"
+                    w={{ base: "100%", md: "48%", lg: "46%" }}
+                    h="100%"
                     fontSize="sm"
                     align="start"
                     p={4}
                   >
                     <Text>{data.metric}</Text>
-                    <Text fontWeight="bold" fontSize={"xl"} color={"#1C0666 "}>
+                    <Text fontWeight="bold" fontSize="xl" color="#1C0666">
                       {data.value}
                     </Text>
-                  </VStack>
+                  </Box>
                 ))}
             </Flex>
           ))}
