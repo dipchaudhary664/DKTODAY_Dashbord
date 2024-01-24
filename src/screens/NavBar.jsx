@@ -26,7 +26,6 @@ const SideBar = () => {
     textDecoration: "none",
     color: activeLink === link ? "white" : "black",
     backgroundColor: activeLink === link ? "#1C0666 " : "transparent",
-    // width: "10%",
     padding: "2",
     borderRadius: "8px",
   });
@@ -38,7 +37,7 @@ const SideBar = () => {
       h="100vh"
       position="fixed"
       boxShadow="0 4px 6px rgba(0,0,0,0.1)"
-      overflowY="auto"
+      // overflowY="hidden"
     >
       <Heading
         mb="4"
