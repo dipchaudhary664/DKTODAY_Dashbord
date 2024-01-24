@@ -1,15 +1,7 @@
 import React, { useState } from "react";
-import {
-  Box,
-  Heading,
-  VStack,
-  Link,
-  Collapse,
-  Text,
-  HStack,
-} from "@chakra-ui/react";
+import { Box, Heading, VStack, Collapse, Text, HStack } from "@chakra-ui/react";
 import { Icon } from "@iconify/react";
-
+import { Link } from "react-router-dom";
 const SideBar = () => {
   const [isOpen, setOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("หน้าแรก");
@@ -34,23 +26,27 @@ const SideBar = () => {
     <Box
       color="white"
       w={{ base: "60px", md: "200px", lg: "250px" }}
-      h="100vh"
+      // h="100vh"
       position="fixed"
       boxShadow="0 4px 6px rgba(0,0,0,0.1)"
-      // overflowY="hidden"
     >
       <Heading
         mb="4"
         size="lg"
         color="black"
         pl="5"
-        pt="5"
+        pt={"3"}
         fontSize={{ base: "2xl", md: "xl", lg: "4xl" }}
       >
         DKTODAY
       </Heading>
       <VStack alignItems="flex-start" mx="5">
-        <HStack style={linkAndIconStyles("หน้าแรก")} width={"100%"} px="2">
+        <HStack
+          style={linkAndIconStyles("หน้าแรก")}
+          width={"100%"}
+          height={"30px"}
+          px="2"
+        >
           <Icon
             icon="iconamoon:home-light"
             color={activeLink === "หน้าแรก" ? "white" : "black"}
@@ -58,7 +54,7 @@ const SideBar = () => {
             height="20"
           />
           <Link
-            href="#"
+            to="/home"
             py="2"
             fontSize={"sm"}
             style={linkAndIconStyles("หน้าแรก")}
@@ -67,7 +63,12 @@ const SideBar = () => {
             หน้าแรก
           </Link>
         </HStack>
-        <HStack style={linkAndIconStyles("การจัดส่ง")} width={"100%"} px="2">
+        <HStack
+          style={linkAndIconStyles("การจัดส่ง")}
+          width={"100%"}
+          height={"30px"}
+          px="2"
+        >
           <Icon
             icon="fluent:box-20-regular"
             color={activeLink === "การจัดส่ง" ? "white" : "black"}
@@ -88,13 +89,9 @@ const SideBar = () => {
           </Link>
         </HStack>
         <Collapse in={isOpen}>
-          <VStack alignItems="flex-start">
+          <VStack alignItems="flex-start" pl="2" width={"100%"} height={"30px"}>
             <Link
               href="#"
-              px="2"
-              py="2"
-              width={{ base: "100%", md: "160px", lg: "190px" }}
-              fontSize={"sm"}
               style={linkAndIconStyles("Item 1")}
               onClick={() => handleLinkClick("Item 1")}
             >
@@ -102,8 +99,12 @@ const SideBar = () => {
             </Link>
           </VStack>
         </Collapse>
-
-        <HStack style={linkAndIconStyles("คำสั่งซื้อ")} width={"100%"} px="2">
+        <HStack
+          style={linkAndIconStyles("คำสั่งซื้อ")}
+          width={"100%"}
+          height={"30px"}
+          px="2"
+        >
           <Icon
             icon="material-symbols-light:list-alt-outline"
             color={activeLink === "คำสั่งซื้อ" ? "white" : "black"}
@@ -120,7 +121,12 @@ const SideBar = () => {
             คำสั่งซื้อ
           </Link>
         </HStack>
-        <HStack style={linkAndIconStyles("สิ้นค้า")} width={"100%"} px="2">
+        <HStack
+          style={linkAndIconStyles("สิ้นค้า")}
+          width={"100%"}
+          height={"30px"}
+          px="2"
+        >
           <Icon
             icon="f7:book"
             color={activeLink === "สิ้นค้า" ? "white" : "black"}
@@ -158,7 +164,12 @@ const SideBar = () => {
             สำหรับสถานะศึกษา
           </Link>
         </HStack>
-        <HStack style={linkAndIconStyles("การเงิน")} width={"100%"} px="2">
+        <HStack
+          style={linkAndIconStyles("การเงิน")}
+          width={"100%"}
+          height={"30px"}
+          px="2"
+        >
           <Icon
             icon="lets-icons:wallet-light"
             color={activeLink === "การเงิน" ? "white" : "black"}
@@ -175,7 +186,12 @@ const SideBar = () => {
             การเงิน
           </Link>
         </HStack>
-        <HStack style={linkAndIconStyles("โปรโมชัน")} width={"100%"} px="2">
+        <HStack
+          style={linkAndIconStyles("โปรโมชัน")}
+          width={"100%"}
+          height={"30px"}
+          px="2"
+        >
           <Icon
             icon="codicon:mic"
             color={activeLink === "โปรโมชัน" ? "white" : "black"}
@@ -192,7 +208,12 @@ const SideBar = () => {
             โปรโมชัน
           </Link>
         </HStack>
-        <HStack style={linkAndIconStyles("แชทกับลูกค้า")} width={"100%"} px="2">
+        <HStack
+          style={linkAndIconStyles("แชทกับลูกค้า")}
+          width={"100%"}
+          height={"30px"}
+          px="2"
+        >
           <Icon
             icon="fluent:chat-12-regular"
             color={activeLink === "แชทกับลูกค้า" ? "white" : "black"}
@@ -209,7 +230,12 @@ const SideBar = () => {
             แชทกับลูกค้า
           </Link>
         </HStack>
-        <HStack style={linkAndIconStyles("แจ้งเตือน")} width={"100%"} px="2">
+        <HStack
+          style={linkAndIconStyles("แจ้งเตือน")}
+          width={"100%"}
+          height={"30px"}
+          px="2"
+        >
           <Icon
             icon="system-uicons:bell"
             color={activeLink === "แจ้งเตือน" ? "white" : "black"}
@@ -226,7 +252,12 @@ const SideBar = () => {
             แจ้งเตือน
           </Link>
         </HStack>
-        <HStack style={linkAndIconStyles("ตั้งค่า")} width={"100%"} px="2">
+        <HStack
+          style={linkAndIconStyles("ตั้งค่า")}
+          width={"100%"}
+          height={"30px"}
+          px="2"
+        >
           <Icon
             icon="uil:setting"
             color={activeLink === "ตั้งค่า" ? "white" : "black"}
@@ -234,7 +265,7 @@ const SideBar = () => {
             height="20"
           />
           <Link
-            href="#"
+            to="/setting"
             py="2"
             fontSize={"sm"}
             style={linkAndIconStyles("ตั้งค่า")}
@@ -243,7 +274,12 @@ const SideBar = () => {
             ตั้งค่า
           </Link>
         </HStack>
-        <HStack style={linkAndIconStyles("Report")} width={"100%"} px="2">
+        <HStack
+          style={linkAndIconStyles("Report")}
+          width={"100%"}
+          height={"30px"}
+          px="2"
+        >
           <Icon
             icon="heroicons-outline:document-report"
             color={activeLink === "Report" ? "white" : "black"}
@@ -260,7 +296,12 @@ const SideBar = () => {
             Report
           </Link>
         </HStack>
-        <HStack style={linkAndIconStyles("ดาวน์โหลด")} width={"100%"} px="2">
+        <HStack
+          style={linkAndIconStyles("ดาวน์โหลด")}
+          width={"100%"}
+          height={"30px"}
+          px="2"
+        >
           <Icon
             icon="material-symbols:download"
             color={activeLink === "ดาวน์โหลด" ? "white" : "black"}
@@ -277,7 +318,12 @@ const SideBar = () => {
             ดาวน์โหลด
           </Link>
         </HStack>
-        <HStack style={linkAndIconStyles("ออกจากระบบ")} width={"100%"} px="2">
+        <HStack
+          style={linkAndIconStyles("ออกจากระบบ")}
+          width={"100%"}
+          height={"30px"}
+          px="2"
+        >
           <Icon
             icon="ant-design:logout-outlined"
             color={activeLink === "ออกจากระบบ" ? "white" : "black"}
@@ -296,7 +342,7 @@ const SideBar = () => {
         </HStack>
         <HStack
           style={linkAndIconStyles("ซ่อนเมนู")}
-          h={"20vh"}
+          h={"10vh"}
           ml={"55%"}
           align={"center"}
         >

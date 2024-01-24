@@ -1,16 +1,19 @@
 import Home from "./screens/Home";
 import NavBar from "./screens/NavBar";
-import { ChakraProvider, Box } from "@chakra-ui/react";
+import { ChakraProvider } from "@chakra-ui/react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Setting from "./screens/Setting";
 
 function App() {
   return (
     <ChakraProvider>
-      <Box>
-        <Box>
-          <NavBar />
-          <Home />
-        </Box>
-      </Box>
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="/setting" element={<Setting />} />
+        </Routes>
+      </BrowserRouter>
     </ChakraProvider>
   );
 }

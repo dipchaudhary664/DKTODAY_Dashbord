@@ -4,12 +4,12 @@ import {
   Box,
   HStack,
   Text,
-  Avatar,
   Spacer,
-  AvatarBadge,
   VStack,
   Flex,
   SimpleGrid,
+  Avatar,
+  AvatarBadge,
 } from "@chakra-ui/react";
 import { Icon } from "@iconify/react";
 
@@ -66,7 +66,7 @@ const dashboardData = [
 const Home = () => {
   return (
     <Box>
-      <Box pl={{ base: "20%", md: "28%", lg: "20%" }} pr="2%" py="1%">
+      <Box ml={{ base: "20%", md: "28%", lg: "20%" }} pr="2%" pt={"1%"}>
         <HStack
           bgColor="#F2F4F4"
           h={"8%"}
@@ -104,7 +104,6 @@ const Home = () => {
             size="sm"
             src="https://bit.ly/dan-abramov"
           >
-            {" "}
             <AvatarBadge boxSize="1.10em" bg="green.500" />
           </Avatar>
         </HStack>
